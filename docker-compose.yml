@@ -1,10 +1,10 @@
 version: '3.5'
 services:
-  svn-proxy:
+  reverse-proxy:
     build: ./nginx
-    image: svn-proxy:latest
-    hostname: svn-proxy
-    container_name: svn-proxy
+    image: reverse-proxy:latest
+    hostname: reverse-proxy
+    container_name: reverse-proxy
     networks:
       - nuts
     volumes:
@@ -15,6 +15,10 @@ services:
     restart: always
     ports:
       - 8889:8889
+      - 8881:8881
+#      - 2021:2021
+#      - 1111:1111
+#      - 2222:2222
 networks:
   nuts:
     driver: bridge      
